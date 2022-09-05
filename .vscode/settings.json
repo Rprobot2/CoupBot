@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./coup-submission-helper-master"
+    ]
+}
