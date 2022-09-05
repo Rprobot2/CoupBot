@@ -1,0 +1,13 @@
+[tool.setuptools]
+py-modules = ["submission_helper.bot_battle", "submission_helper.enums", "submission_helper.state"]
+
+[project]
+name = "submission_helper"
+description = "A helper package for student submission during SYNCS Bot Battle 2022"
+version = "1.0.0"
+readme = "README.md"
+requires-python = ">=3.9"
+
+classifiers = [
+    "Programming Language :: Python :: 3"
+]
