@@ -12,7 +12,7 @@ def get_next_alive_player():
     next_alive = (game_info.player_id + 1) % 5
     while game_info.players_cards_num[next_alive] == 0:
         next_alive = (next_alive + 1) % 5
-    
+
     return next_alive
 
 
@@ -33,7 +33,7 @@ def move_controller(requested_move: RequestedMove):
         discard_choice_handler()
 
     else:
-        return Exception(f'Unknown requested move: {requested_move}')
+        return Exception(f"Unknown requested move: {requested_move}")
 
 
 def primary_action_handler():
