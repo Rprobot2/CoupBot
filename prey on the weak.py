@@ -46,7 +46,7 @@ def primary_action_handler():
         if cards[i] == 1 and i != pID:
             almost_dead.append(i)
 
-        if bals[i] >= 7 and i != pID:
+        if cards[i] == 2 and i != pID:
             urgent.append(i)
 
     if game_info.balances[pID] >= 7:
@@ -84,7 +84,7 @@ def primary_action_handler():
 
     else:
         print("tax")
-        bot_battle.play_primary_action(PrimaryAction.Income)
+        bot_battle.play_primary_action(PrimaryAction.ForeignAid)
 
 
 def counter_action_handler():
@@ -105,9 +105,9 @@ def challenge_response_handler():
 
     if len(cards) > 1:
         if cards[0] == 2:
-            bot_battle.play_challenge_response(1)
-        elif cards[1] == 2:
             bot_battle.play_challenge_response(0)
+        elif cards[1] == 2:
+            bot_battle.play_challenge_response(1)
         else:
             bot_battle.play_challenge_response(0)
 
@@ -116,7 +116,16 @@ def challenge_response_handler():
 
 
 def discard_choice_handler():
-    bot_battle.play_discard_choice(0)
+    cards = game_info.own_cards
+    if len(cards) > 1:
+        if cards[0] == 2:
+            bot_battle.play_discard_choice(1)
+        elif cards[1] == 2:
+            bot_battle.play_discard_choice(0)
+        else:
+            bot_battle.play_discard_choice(0)
+    else:
+        bot_battle.play_discard_choice(0)
 
 
 if __name__ == "__main__":
